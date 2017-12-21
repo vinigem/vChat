@@ -34,3 +34,9 @@ body {
 	border-radius: 5px;
 	padding: 5px 15px;
 }
+
+/* Start:- override bootstrap css */
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text, .navbar-inverse .navbar-brand {
+    color: #fff !important;
+}
+/* End:- override bootstrap css */
