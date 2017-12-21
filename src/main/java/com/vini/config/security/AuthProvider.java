@@ -3,6 +3,7 @@ package com.vini.config.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,8 +12,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import com.vini.entities.User;
+import com.vini.repository.UserRepository;
+
 @Component
 public class AuthProvider implements AuthenticationProvider {
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -23,14 +30,13 @@ public class AuthProvider implements AuthenticationProvider {
 			grantedAuths = new ArrayList<GrantedAuthority>();
 			String userName = authentication.getName();
 			String password = (String) authentication.getCredentials();
+			
+			User user = userRepository.findByUsername(userName);
 
-			if(userName.equals("user")  && password.equals("passw0rd")) {
-				grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+			if(null != user  && user.getPassword().equals(password)) {
+				grantedAuths.add(new SimpleGrantedAuthority(user.getRole()));
 				authToken = new UsernamePasswordAuthenticationToken(userName, password, grantedAuths);
 
-			}else if(userName.equals("admin")  && password.equals("passw0rd")){
-				grantedAuths.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-				authToken = new UsernamePasswordAuthenticationToken(userName, password, grantedAuths);
 			}
 		}
 		return authToken;
