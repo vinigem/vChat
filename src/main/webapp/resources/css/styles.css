@@ -4,6 +4,10 @@ html, body {
 	height: 100%;
 }
 
+body {
+	background: #fff url(/resources/images/bg.jpg) repeat top left;
+}
+
 .bottom-footer {
 	position: absolute;
 	bottom: 0;
@@ -14,8 +18,19 @@ html, body {
 	color: #fff;
 	line-height: 30px;
 	padding: 5px 20px;
+	z-index: 5;
 }
 
 .navbar {
 	border-radius: 0px !important;
+}
+
+.form-conatainer {
+	background: #f7f7f7;
+	max-width: 500px;
+	margin: 0 auto;
+	border: 1px solid rgba(147, 184, 189, 0.8);
+	box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	border-radius: 5px;
+	padding: 5px 15px;
 }

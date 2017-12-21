@@ -12,7 +12,7 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (request.url !== 'signin') {
+        if (request.url !== 'signin' && request.url !== 'signup') {
             // Add auth token
             request = request.clone({
                 setHeaders: {

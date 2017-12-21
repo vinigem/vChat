@@ -8,10 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.vini.dto.User;
 
 /**
  * Controller to handle Authentication related requests
@@ -33,11 +36,17 @@ public class AuthController {
 		}
 		return isAuthenticated;
 	}
+	
+	@RequestMapping(value="/signup", method = RequestMethod.POST)
+	public @ResponseBody boolean signup(@RequestBody User user){
+		LOGGER.info("User details for sign up: {}", user);
+		return true;
+	}
 		
 	@SuppressWarnings("unchecked")
 	private void setSessionAttributes(HttpSession session, Authentication authentication) {
 		session.setMaxInactiveInterval(1800);
-		session.setAttribute("userName", authentication.getName());
+		session.setAttribute("username", authentication.getName());
 		List<GrantedAuthority> grantedAuths = (List<GrantedAuthority>) authentication.getAuthorities();
 		session.setAttribute("role", grantedAuths.get(0).getAuthority());
 	}

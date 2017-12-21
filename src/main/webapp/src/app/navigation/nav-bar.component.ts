@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
 
@@ -6,7 +6,7 @@ import { AuthService } from '../auth/auth.service';
     selector: 'nav-bar',
     templateUrl: './nav-bar.component.html'
 })
-export class NavBarComponent implements OnDestroy {
+export class NavBarComponent implements OnInit, OnDestroy {
 
     public isLoggedIn: boolean;
     private loginSubscription: any;
@@ -16,6 +16,10 @@ export class NavBarComponent implements OnDestroy {
             .subscribe(loggedIn => {
                 this.isLoggedIn = loggedIn;
             });    
+    }
+    
+    ngOnInit() {
+        this.isLoggedIn = this.authService.isAuthenticated();    
     }
 
     ngOnDestroy() {

@@ -14,16 +14,19 @@ import { FooterBarComponent } from './footer/footer-bar.component';
 
 import { HomeComponent } from './home/home.component';
 
-import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './signin/sign-in.component';
+import { SignUpComponent } from './signup/sign-up.component';
 
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './alert/alert.service';
 
 import { ChatService } from './chat/chat.service';
 
+
+
 @NgModule({
     declarations: [
-        AppComponent, NavBarComponent, FooterBarComponent, HomeComponent, LoginComponent, AlertComponent
+        AppComponent, NavBarComponent, FooterBarComponent, AlertComponent, HomeComponent, SignInComponent, SignUpComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule

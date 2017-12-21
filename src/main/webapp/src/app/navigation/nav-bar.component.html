@@ -17,8 +17,9 @@
                 <li><a href="#">Link 1</a></li>
                 <li><a href="#">Link 2</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn">
-                <li><a href="#" (click)="logout()"><span class="fa fa-sign-out"></span> Logout</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="isLoggedIn"><a href="#" (click)="logout()"><span class="fa fa-sign-out"></span> Logout</a></li>
+                <li *ngIf="!isLoggedIn"><a href="#" [routerLink]="['/signin']"><span class="fa fa-sign-in"></span> Sign In</a></li>
             </ul>
         </div>
     </div>

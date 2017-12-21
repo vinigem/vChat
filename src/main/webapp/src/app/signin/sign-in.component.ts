@@ -7,27 +7,27 @@ import { AuthService } from '../auth/auth.service';
 import { AlertService } from '../alert/alert.service';
 
 @Component({
-    templateUrl: './login.component.html'
+    templateUrl: './sign-in.component.html'
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
-    loginForm: FormGroup;
+    signInForm: FormGroup;
 
     constructor(private formBuilder: FormBuilder, private authService: AuthService, private http: HttpClient,
         private alertService: AlertService, private router: Router) { }
 
     ngOnInit() {
-        this.loginForm = this.formBuilder.group({
+        this.signInForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
     }
 
     onSubmit() {
-        if(!this.loginForm.valid){
-            this.alertService.addAlert('Invalid form fields', 'error');
+        if(!this.signInForm.valid){
+            this.alertService.addAlert('Invalid username or password', 'error');
         }else{
-            let user = this.loginForm.value;
+            let user = this.signInForm.value;
             let token: string = btoa(user.username + ':' + user.password);
             let headers =  new HttpHeaders({
                 'Authorization': 'Basic ' + btoa(user.username + ':' + user.password),
@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
                         this.authService.setToken(token);
                         this.router.navigate(['home']);
                     } else {
-                        this.alertService.addAlert('Invalid login details', 'error');
+                        this.alertService.addAlert('Invalid username or password', 'error');
                     }
                 },
                 err => {
-                    this.alertService.addAlert('Something went wrong while authenticating!', 'error');
+                    this.alertService.addAlert('Something went wrong while authentication!', 'error');
              });
         }
     }
