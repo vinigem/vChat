@@ -22,11 +22,15 @@ import { AlertService } from './alert/alert.service';
 
 import { ChatService } from './chat/chat.service';
 
+import { TranslateService } from './translation/translate.service';
+import { TranslatePipe } from './translation/translate.pipe';
+
 
 
 @NgModule({
     declarations: [
-        AppComponent, NavBarComponent, FooterBarComponent, AlertComponent, HomeComponent, SignInComponent, SignUpComponent
+        AppComponent, NavBarComponent, FooterBarComponent, AlertComponent, HomeComponent, SignInComponent, SignUpComponent,
+        TranslatePipe
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule
@@ -34,7 +38,7 @@ import { ChatService } from './chat/chat.service';
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
-        AlertService, ChatService
+        AlertService, ChatService, TranslateService
     ],
     bootstrap: [AppComponent]
 })

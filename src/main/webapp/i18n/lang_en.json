@@ -1,0 +1,13 @@
+{
+	"app_name": "vChat",
+	"label_home": "Home",
+	"label_signin": "Sign In",
+	"label_signout": "Sign Out",
+	"label_signup": "Sign Up",
+	"label_copyright": "2017, Vinit Kumar, All rights reserved",
+	"label_email": "Email",
+	"label_forget_password": "forget Password",
+	"label_new_user": "New User ?",
+	"label_password": "Password",
+	"label_username": "User Name"
+}

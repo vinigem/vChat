@@ -17,6 +17,10 @@ public class UserService implements IUserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	/**
+	 * save user
+	 * @param user the user dto
+	 */
 	@Override
 	public boolean saveUser(User user) {
 		com.vini.entities.User newUser = new com.vini.entities.User();

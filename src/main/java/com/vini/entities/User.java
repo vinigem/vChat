@@ -116,7 +116,7 @@ public class User {
 
 
 
-	/* (non-Javadoc)
+	 /*(non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

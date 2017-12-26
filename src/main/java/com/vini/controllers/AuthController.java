@@ -1,14 +1,9 @@
 package com.vini.controllers;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,29 +26,27 @@ public class AuthController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 	
-		
+	/**
+	 * method to sign in user	
+	 * @param authentication the authentication object
+	 * @return isAuthenticated
+	 */
 	@RequestMapping(value="/signin", method = RequestMethod.POST)
-	public @ResponseBody boolean signin(HttpSession session, Authentication authentication){
-		boolean isAuthenticated = null != authentication && authentication.isAuthenticated();
-		
-		if(isAuthenticated){
-			setSessionAttributes(session, authentication);
-		}
-		return isAuthenticated;
+	public @ResponseBody boolean signin(Authentication authentication){
+		LOGGER.info("Authentication object: {}", authentication);
+		return null != authentication && authentication.isAuthenticated();
 	}
 	
+	/**
+	 * method to sign up/save user
+	 * @param user the user dto
+	 * @return status
+	 */
 	@RequestMapping(value="/signup", method = RequestMethod.POST)
 	public @ResponseBody boolean signup(@RequestBody User user){
 		LOGGER.info("User details for sign up: {}", user);
 		return userService.saveUser(user);
 	}
-		
-	@SuppressWarnings("unchecked")
-	private void setSessionAttributes(HttpSession session, Authentication authentication) {
-		session.setMaxInactiveInterval(1800);
-		session.setAttribute("username", authentication.getName());
-		List<GrantedAuthority> grantedAuths = (List<GrantedAuthority>) authentication.getAuthorities();
-		session.setAttribute("role", grantedAuths.get(0).getAuthority());
-	}
+	
 
 }

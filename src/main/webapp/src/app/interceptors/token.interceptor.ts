@@ -9,10 +9,12 @@ import { AuthService } from '../auth/auth.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
         
+    private excludedUrls = ['signin', 'signup'];
+        
     constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (request.url !== 'signin' && request.url !== 'signup') {
+        if (this.excludedUrls.indexOf(request.url) === -1 && request.url.indexOf('i18n') === -1) {
             // Add auth token
             request = request.clone({
                 setHeaders: {
