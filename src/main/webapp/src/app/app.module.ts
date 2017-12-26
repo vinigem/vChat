@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing.module';
 
-import { LoggingInterceptor } from './interceptors/logging.interceptor';
+import { CommonInterceptor } from './interceptors/common.interceptor';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './navigation/nav-bar.component';
@@ -25,20 +25,21 @@ import { ChatService } from './chat/chat.service';
 import { TranslateService } from './translation/translate.service';
 import { TranslatePipe } from './translation/translate.pipe';
 
-
+import { OverlayService } from './overlay/overlay.service';
+import { OverlayComponent } from './overlay/overlay.component';
 
 @NgModule({
     declarations: [
         AppComponent, NavBarComponent, FooterBarComponent, AlertComponent, HomeComponent, SignInComponent, SignUpComponent,
-        TranslatePipe
+        TranslatePipe, OverlayComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
-        AlertService, ChatService, TranslateService
+        { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
+        AlertService, ChatService, TranslateService, OverlayService
     ],
     bootstrap: [AppComponent]
 })
