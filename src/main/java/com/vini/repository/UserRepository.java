@@ -6,7 +6,6 @@ import com.vini.entities.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
 	
-	public User findByUsername(String username);
+	User findByUsername(String username);
 	
-
 }

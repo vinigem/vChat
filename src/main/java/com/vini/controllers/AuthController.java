@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vini.dto.User;
+import com.vini.services.IUserService;
 
 /**
  * Controller to handle Authentication related requests
@@ -23,6 +25,9 @@ import com.vini.dto.User;
  */
 @RestController
 public class AuthController {
+	
+	@Autowired
+	private IUserService userService;
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 	
@@ -40,7 +45,7 @@ public class AuthController {
 	@RequestMapping(value="/signup", method = RequestMethod.POST)
 	public @ResponseBody boolean signup(@RequestBody User user){
 		LOGGER.info("User details for sign up: {}", user);
-		return true;
+		return userService.saveUser(user);
 	}
 		
 	@SuppressWarnings("unchecked")
