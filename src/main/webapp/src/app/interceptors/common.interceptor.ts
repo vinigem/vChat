@@ -23,9 +23,10 @@ export class CommonInterceptor implements HttpInterceptor {
                 if (event instanceof HttpResponse) {
                     let elapsed = Date.now() - started;
                     console.log(`Request for ${request.urlWithParams} took ${elapsed} ms.`);
+                    
+                    // call to hide overlay
+                    this.overlayService.hideOverlay();
                 }
-                // call to hide overlay
-                this.overlayService.hideOverlay();
             }); 
     }
 }
