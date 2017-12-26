@@ -36,8 +36,8 @@ export class SignUpComponent implements OnInit {
             this.http.post('signup', user)
                 .subscribe(status => {
                     if (status) {
-                        this.alertService.addAlert('Sign Up is successful. Proceed to sign in page', 'success');
-                        this.initForm();
+                        this.alertService.addAlert('Sign Up is successful. Proceed to sign in', 'success');
+                        this.router.navigate(['signin']);
                     } else {
                         this.alertService.addAlert('Sign Up failed', 'error');
                     }
