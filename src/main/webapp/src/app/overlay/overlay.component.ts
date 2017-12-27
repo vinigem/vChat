@@ -6,7 +6,7 @@ import { OverlayService } from './overlay.service';
     selector: 'overlay',
     template: `
       <div *ngIf="overlayService.getActiveRequests() > 0" class="overlay">
-        <i class="fa fa-cog fa-spin fa-5x fa-fw loading-image"></i>
+        <i class="fa fa-refresh fa-spin fa-5x fa-fw"></i>
       </div>
     `
 })

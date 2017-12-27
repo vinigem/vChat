@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -9,7 +10,7 @@ export class AuthService {
     loggedIn: boolean;
     loginSubscription = new BehaviorSubject<boolean>(this.loggedIn);
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
     setLoggedIn(value: boolean) {
         this.loggedIn = value;
@@ -33,12 +34,12 @@ export class AuthService {
     }
 
     /**
-     * logout and set logged in flag
+     * remove token and disable logged in flag and redirect to route
      */
     logout() {
         localStorage.removeItem('token');
         this.setLoggedIn(false);
-        window.location.href = "/logout";
+        this.router.navigate(['/']);
     }
 
     /**

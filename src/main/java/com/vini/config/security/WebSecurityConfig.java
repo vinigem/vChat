@@ -35,11 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             	.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
-            	.logout()
-            		.clearAuthentication(true)
-            		.invalidateHttpSession(true)
-            		.logoutSuccessUrl("/")
-            .and()
             	.exceptionHandling()
         			.authenticationEntryPoint(authEntryPoint);
     }
