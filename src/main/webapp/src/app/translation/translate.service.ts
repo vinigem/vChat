@@ -9,9 +9,9 @@ export class TranslateService {
     private currentLanguage: string = 'en';
     private translations = [];
     private languages = [];
-    
+
     languageSubscription = new BehaviorSubject<any>(this.languages);
-    
+
     constructor(private http: HttpClient) {
         this.loadLanguages();
         this.loadTranslation();
@@ -34,7 +34,7 @@ export class TranslateService {
             this.loadTranslation();
         }
     }
-    
+
     /**
      * get app supported languages
      */
@@ -48,21 +48,17 @@ export class TranslateService {
     getCurrentLanguage(): string {
         return this.currentLanguage;
     }
-    
+
     /**
      * load languages supported by application
      */
     private loadLanguages(): void {
         let languagesFile = "../../i18n/languages.json";
-        
-        this.http.get(languagesFile)
-            .subscribe((result: any) => {
-                this.languages = result;
-                this.languageSubscription.next(this.languages);
-            },
-            error => {
-                console.error("Error loading languages. ", error)
-            });    
+
+        this.http.get(languagesFile).subscribe((result: any) => {
+            this.languages = result;
+            this.languageSubscription.next(this.languages);
+        });
     }
 
     /**
@@ -70,14 +66,10 @@ export class TranslateService {
      */
     private loadTranslation(): void {
         let file = "../../i18n/lang_" + this.currentLanguage + ".json";
-        
-        this.http.get(file)
-            .subscribe((result: any) => {
-                this.translations[this.currentLanguage] = result;
-            },
-            error => {
-                console.error("Error loading translation. ", error)
-            });
+
+        this.http.get(file).subscribe((result: any) => {
+            this.translations[this.currentLanguage] = result;
+        });
     }
 
 

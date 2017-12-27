@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class OverlayService {
 
-  private activeRequests: number = 0;
+    private activeRequests: number = 0;
 
-  /* return count of active request */  
-  getActiveRequests(): number {
-    return this.activeRequests;
-  }
+    /* return count of active request */
+    getActiveRequests(): number {
+        return this.activeRequests;
+    }
 
-  /* add request count */
-  showOverlay(): void {
-    this.activeRequests++;
+    /* add request count */
+    showOverlay(): void {
+        this.activeRequests++;
 
-  }
-  /* remove request count */
-  hideOverlay(): void {
-    this.activeRequests--;
-  }
+    }
+    /* remove request count */
+    hideOverlay(): void {
+        this.activeRequests--;
+    }
 }

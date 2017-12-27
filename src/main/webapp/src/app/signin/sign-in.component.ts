@@ -24,28 +24,24 @@ export class SignInComponent implements OnInit {
     }
 
     onSubmit() {
-        if(!this.signInForm.valid){
+        if (!this.signInForm.valid) {
             this.alertService.addAlert('Invalid username or password', 'error');
-        }else{
+        } else {
             let user = this.signInForm.value;
             let token: string = btoa(user.username + ':' + user.password);
-            let headers =  new HttpHeaders({
+            let headers = new HttpHeaders({
                 'Authorization': 'Basic ' + btoa(user.username + ':' + user.password),
-                'X-Requested-With': 'XMLHttpRequest'     
+                'X-Requested-With': 'XMLHttpRequest'
             });
-                        
-            this.http.post('signin', {}, {headers})
-                .subscribe(authResult => {
-                    if (authResult) {
-                        this.authService.setToken(token);
-                        this.router.navigate(['home']);
-                    } else {
-                        this.alertService.addAlert('Invalid username or password', 'error');
-                    }
-                },
-                err => {
-                    this.alertService.addAlert('Something went wrong while authentication!', 'error');
-             });
+
+            this.http.post('signin', {}, { headers }).subscribe(authResult => {
+                if (authResult) {
+                    this.authService.setToken(token);
+                    this.router.navigate(['home']);
+                } else {
+                    this.alertService.addAlert('Invalid username or password', 'error');
+                }
+            });
         }
     }
 }

@@ -18,33 +18,29 @@ export class SignUpComponent implements OnInit {
     ngOnInit() {
         this.initForm();
     }
-    
+
     private initForm() {
         this.signUpForm = this.formBuilder.group({
             username: ['', Validators.required],
             email: ['', Validators.required],
             password: ['', Validators.required]
-        });    
+        });
     }
 
     onSubmit() {
-        if(!this.signUpForm.valid){
+        if (!this.signUpForm.valid) {
             this.alertService.addAlert('Invalid form fields', 'error');
-        }else{
+        } else {
             let user = this.signUpForm.value;
-                        
-            this.http.post('signup', user)
-                .subscribe(status => {
-                    if (status) {
-                        this.alertService.addAlert('Sign Up is successful. Proceed to sign in', 'success');
-                        this.router.navigate(['signin']);
-                    } else {
-                        this.alertService.addAlert('Sign Up failed', 'error');
-                    }
-                },
-                err => {
-                    this.alertService.addAlert('Something went wrong while sign up!', 'error');
-             });
+
+            this.http.post('signup', user).subscribe(status => {
+                if (status) {
+                    this.alertService.addAlert('Sign Up is successful. Proceed to sign in', 'success');
+                    this.router.navigate(['signin']);
+                } else {
+                    this.alertService.addAlert('Sign Up failed', 'error');
+                }
+            });
         }
     }
 }
