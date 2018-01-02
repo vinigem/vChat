@@ -8,6 +8,7 @@
 	"label_email": "Email",
 	"label_forget_password": "forget Password",
 	"label_new_user": "New User ?",
+	"already_registered": "Already Registered ?",
 	"label_password": "Password",
 	"label_username": "User Name"
 }
