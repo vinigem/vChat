@@ -28,10 +28,12 @@ import { TranslatePipe } from './translation/translate.pipe';
 import { OverlayService } from './overlay/overlay.service';
 import { OverlayComponent } from './overlay/overlay.component';
 
+import { InfoComponent } from './info/info.component';
+
 @NgModule({
     declarations: [
         AppComponent, NavBarComponent, FooterBarComponent, AlertComponent, HomeComponent, SignInComponent, SignUpComponent,
-        TranslatePipe, OverlayComponent
+        TranslatePipe, OverlayComponent, InfoComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule

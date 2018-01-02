@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './signin/sign-in.component';
 import { SignUpComponent } from './signup/sign-up.component';
 
+import { InfoComponent } from './info/info.component';
+
 const routes: Routes = [
     { path: '', canActivate:[AuthGuard], 
         children: [
@@ -20,7 +22,8 @@ const routes: Routes = [
         ]
     },
     { path: 'signin', component: SignInComponent },
-    { path: 'signup', component: SignUpComponent }
+    { path: 'signup', component: SignUpComponent },
+    { path: 'info/:type', component: InfoComponent }
 ];
 
 @NgModule({
