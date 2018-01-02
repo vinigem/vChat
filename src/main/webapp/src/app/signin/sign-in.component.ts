@@ -41,6 +41,8 @@ export class SignInComponent implements OnInit {
                 } else {
                     this.alertService.addAlert('Invalid username or password', 'error');
                 }
+            }, error => {
+                this.alertService.addAlert('Invalid username or password', 'error');    
             });
         }
     }

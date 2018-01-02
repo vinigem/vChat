@@ -40,6 +40,8 @@ export class SignUpComponent implements OnInit {
                 } else {
                     this.alertService.addAlert('Sign Up failed', 'error');
                 }
+            }, error => {
+                this.alertService.addAlert('Sign Up failed', 'error');
             });
         }
     }
