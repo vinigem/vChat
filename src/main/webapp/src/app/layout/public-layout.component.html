@@ -1,16 +1,14 @@
+<nav class="navbar navbar-inverse">
+   	<div class="container-fluid">
+       	<div class="navbar-header">
+           	<a href="#" class="navbar-brand">{{ 'app_name' | translate }}</a>
+       	</div>
+    </div>
+</nav>
+	
+<!-- load all public components here -->
 <div class="container">
-	
-	<nav class="navbar navbar-inverse">
-   		<div class="container-fluid">
-        	<div class="navbar-header">
-            	<a href="#" class="navbar-brand">{{ 'app_name' | translate }}</a>
-        	</div>
-    	</div>
-	</nav>
-	
-	<!-- load all public components here -->
 	<router-outlet></router-outlet>
-	
 </div>
 
 
