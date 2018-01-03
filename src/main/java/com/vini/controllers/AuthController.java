@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vini.dto.User;
 import com.vini.services.IUserService;
+import com.vini.utils.UserUtil;
 
 /**
  * Controller to handle Authentication related requests
@@ -45,7 +46,7 @@ public class AuthController {
 	@RequestMapping(value="/signup", method = RequestMethod.POST)
 	public @ResponseBody boolean signup(@RequestBody User user){
 		LOGGER.info("User details for sign up: {}", user);
-		return userService.saveUser(user);
+		return userService.saveUser(UserUtil.convertToUserEntity(user));
 	}
 	
 

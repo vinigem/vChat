@@ -1,11 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { AlertService } from './alert.service';
 
 @Component({
     selector: 'alert',
-    host: {
-        '(click)': 'hideAlert()'
-    },
     template: `
     <div class="alert-box" [ngClass]="{'drop-shadow': show}">
       <div class="alert-message alert-{{type}}" *ngIf="show">
@@ -18,13 +15,17 @@ import { AlertService } from './alert.service';
 export class AlertComponent implements OnInit, OnDestroy {
 
     private alertTypes = ['info', 'warning', 'error', 'success'];
-    private defaultType: string = 'info';
-    private defaultTime: number = 3000;
+    private defaultType = 'info';
+    private defaultTime = 3000;
     public show: boolean;
     public message: string;
     public type: string;
     private timeout: any;
     private alertSubscription: any;
+
+    @HostListener('click') onClick() {
+        this.hideAlert();
+    }
 
     constructor(private alertService: AlertService) { }
 
@@ -33,12 +34,12 @@ export class AlertComponent implements OnInit, OnDestroy {
             .subscribe(alert => {
                 if (alert && alert.message) {
                     this.message = alert.message;
-                    this.type = this.alertTypes.indexOf(alert.type) != -1 ? alert.type : this.defaultType;
-                    let time = (alert.time && alert.time > 0) ? alert.time : this.defaultTime;
+                    this.type = this.alertTypes.indexOf(alert.type) !== -1 ? alert.type : this.defaultType;
+                    const time = (alert.time && alert.time > 0) ? alert.time : this.defaultTime;
                     this.show = true;
-                    this.timeout = setTimeout(() => { this.hideAlert() }, time);
+                    this.timeout = setTimeout(() => { this.hideAlert(); }, time);
                 }
-            })
+            });
     }
 
     hideAlert(): void {

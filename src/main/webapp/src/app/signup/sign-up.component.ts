@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
         if (!this.signUpForm.valid) {
             this.alertService.addAlert('Invalid form fields', 'error');
         } else {
-            let user = this.signUpForm.value;
+            const user = this.signUpForm.value;
 
             this.http.post('signup', user).subscribe(status => {
                 if (status) {

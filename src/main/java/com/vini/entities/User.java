@@ -1,11 +1,6 @@
 package com.vini.entities;
 
-import org.springframework.data.annotation.Id;
-
 public class User {
-	
-	@Id
-	private String id;
 	
 	private String username;
 	
@@ -22,24 +17,6 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.role = role;
-	}
-	
-	
-
-	/**
-	 * @return the id
-	 */
-	public String getId() {
-		return id;
-	}
-
-
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
 	}
 
 
@@ -121,8 +98,7 @@ public class User {
 	 */
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", role="
-				+ role + "]";
+		return "User [username=" + username + ", email=" + email + ", password=" + password + ", role="	+ role + "]";
 	}
 
 	

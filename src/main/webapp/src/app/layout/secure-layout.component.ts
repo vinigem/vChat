@@ -6,11 +6,11 @@ import { AuthService } from '../auth/auth.service';
     templateUrl: './secure-layout.component.html'
 })
 export class SecureLayoutComponent implements OnDestroy {
-    
-    constructor(private authService: AuthService){}
-    
+
+    constructor(private authService: AuthService) {}
+
     ngOnDestroy() {
-        this.authService.logout();    
+        this.authService.logout();
     }
 
 }

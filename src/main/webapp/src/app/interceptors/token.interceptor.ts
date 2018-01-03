@@ -8,9 +8,9 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-        
+
     private excludedUrls = ['signin', 'signup'];
-        
+
     constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
                 }
             });
         }
-        
-        return next.handle(request); 
+
+        return next.handle(request);
     }
 }

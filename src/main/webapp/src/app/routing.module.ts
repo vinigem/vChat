@@ -17,12 +17,15 @@ import { SignUpComponent } from './signup/sign-up.component';
 
 import { InfoComponent } from './info/info.component';
 
+import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
+
 const routes: Routes = [
     {
         path: '', component: SecureLayoutComponent, canActivate: [AuthGuard],
         children: [
             { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'home', component: HomeComponent }
+            { path: 'home', component: HomeComponent },
+            { path: 'tictactoe', component: TicTacToeComponent }
         ]
     },
     {

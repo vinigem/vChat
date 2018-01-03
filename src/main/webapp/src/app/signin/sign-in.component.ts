@@ -27,9 +27,9 @@ export class SignInComponent implements OnInit {
         if (!this.signInForm.valid) {
             this.alertService.addAlert('Invalid username or password', 'error');
         } else {
-            let user = this.signInForm.value;
-            let token: string = btoa(user.username + ':' + user.password);
-            let headers = new HttpHeaders({
+            const user = this.signInForm.value;
+            const token: string = btoa(user.username + ':' + user.password);
+            const headers = new HttpHeaders({
                 'Authorization': 'Basic ' + btoa(user.username + ':' + user.password),
                 'X-Requested-With': 'XMLHttpRequest'
             });
@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit {
                     this.alertService.addAlert('Invalid username or password', 'error');
                 }
             }, error => {
-                this.alertService.addAlert('Invalid username or password', 'error');    
+                this.alertService.addAlert('Invalid username or password', 'error');
             });
         }
     }

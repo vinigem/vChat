@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
-    
+
     loggedIn: boolean;
     loginSubscription = new BehaviorSubject<boolean>(this.loggedIn);
 
@@ -16,7 +16,7 @@ export class AuthService {
         this.loggedIn = value;
         this.loginSubscription.next(value);
     }
-   
+
 
     /**
      * set auth token
@@ -25,12 +25,12 @@ export class AuthService {
         localStorage.setItem('token', token);
         this.setLoggedIn(true);
     }
-    
+
     /**
      * get auth token
      */
     getToken() {
-        return localStorage.getItem('token');    
+        return localStorage.getItem('token');
     }
 
     /**
@@ -39,16 +39,16 @@ export class AuthService {
     logout() {
         localStorage.removeItem('token');
         this.setLoggedIn(false);
-        this.router.navigate(['info', "1"]);
+        this.router.navigate(['info', '1']);
     }
 
     /**
      * Check if user is authenticated
      */
     isAuthenticated() {
-        return this.getToken() != null;    
+        return this.getToken() != null;
     }
-    
-    
+
+
 
 }

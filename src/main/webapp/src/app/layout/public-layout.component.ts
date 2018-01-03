@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     templateUrl: './public-layout.component.html'
 })
 export class PublicLayoutComponent {
-    
-    constructor(){}
-    
+
+    constructor() { }
+
 }

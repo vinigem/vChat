@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class TranslateService {
 
-    private currentLanguage: string = 'en';
+    private currentLanguage = 'en';
     private translations = [];
     private languages = [];
 
@@ -53,7 +53,7 @@ export class TranslateService {
      * load languages supported by application
      */
     private loadLanguages(): void {
-        let languagesFile = "../../i18n/languages.json";
+        const languagesFile = '../../i18n/languages.json';
 
         this.http.get(languagesFile).subscribe((result: any) => {
             this.languages = result;
@@ -65,7 +65,7 @@ export class TranslateService {
      * load translations for current language
      */
     private loadTranslation(): void {
-        let file = "../../i18n/lang_" + this.currentLanguage + ".json";
+        const file = '../../i18n/lang_' + this.currentLanguage + '.json';
 
         this.http.get(file).subscribe((result: any) => {
             this.translations[this.currentLanguage] = result;

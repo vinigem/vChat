@@ -19,7 +19,7 @@ export class CommonInterceptor implements HttpInterceptor {
         this.overlayService.showOverlay();
 
         //  request start time
-        let started = Date.now();
+        const started = Date.now();
 
         return next
             .handle(request)
@@ -30,7 +30,7 @@ export class CommonInterceptor implements HttpInterceptor {
                 }
                 return Observable.throw(response);
             }).finally(() => {
-                let elapsed = Date.now() - started;
+                const elapsed = Date.now() - started;
                 console.log(`Request for ${request.urlWithParams} took ${elapsed} ms.`);
 
                 // call to hide overlay

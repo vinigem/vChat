@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class OverlayService {
 
-    private activeRequests: number = 0;
+    private activeRequests = 0;
 
     /* return count of active request */
     getActiveRequests(): number {

@@ -13,13 +13,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import com.vini.entities.User;
-import com.vini.repository.UserRepository;
+import com.vini.repository.IUserRepository;
 
 @Component
 public class AuthProvider implements AuthenticationProvider {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository userRepository;
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {

@@ -8,9 +8,9 @@ import { ChatService } from '../chat/chat.service';
 export class HomeComponent implements OnInit {
 
     constructor(private chatService: ChatService) { }
-    
+
     ngOnInit() {
-        this.chatService.sendMessage("Welcome User", "user");    
+        this.chatService.sendMessage('Welcome User', 'user');
     }
 
 }

@@ -1,0 +1,57 @@
+<p class="text-center">
+	You are &lsquo;<i class="fa fa-times text-info"></i>&rsquo;.
+	CPU is &lsquo;<i class="fa fa-circle-o text-danger"></i>&rsquo;
+</p>
+
+<div class="game-board">
+	<div class="game-board-row">
+		<button type="button" class="btn game-board-cell" (click)="playMove(0, 0)" [disabled]="!isValidMove(0, 0)">
+			<i *ngIf="board[0][0] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[0][0] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(0, 1)" [disabled]="!isValidMove(0, 1)">
+			<i *ngIf="board[0][1] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[0][1] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(0, 2)" [disabled]="!isValidMove(0, 2)">
+			<i *ngIf="board[0][2] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[0][2] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+	</div>
+	
+	<div class="game-board-row">
+		<button type="button" class="btn game-board-cell" (click)="playMove(1, 0)" [disabled]="!isValidMove(1, 0)">
+			<i *ngIf="board[1][0] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[1][0] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(1, 1)" [disabled]="!isValidMove(1, 1)">
+			<i *ngIf="board[1][1] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[1][1] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(1, 2)" [disabled]="!isValidMove(1, 2)">
+			<i *ngIf="board[1][2] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[1][2] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+	</div>
+	
+	<div class="game-board-row">
+		<button type="button" class="btn game-board-cell" (click)="playMove(2, 0)" [disabled]="!isValidMove(2, 0)">
+			<i *ngIf="board[2][0] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[2][0] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(2, 1)" [disabled]="!isValidMove(2, 1)">
+			<i *ngIf="board[2][1] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[2][1] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+		<button type="button" class="btn game-board-cell" (click)="playMove(2, 2)" [disabled]="!isValidMove(2, 2)">
+			<i *ngIf="board[2][2] === 'P'" class="fa fa-times text-info"></i>
+			<i *ngIf="board[2][2] === 'C'" class="fa fa-circle-o text-danger"></i>
+		</button>
+	</div>
+</div>
+
+<br/>
+
+<div class="form-group text-center" *ngIf="gameOver">
+	<button class="btn btn-success btn-lg" (click)="resetBoard()">Start Again</button>
+</div>

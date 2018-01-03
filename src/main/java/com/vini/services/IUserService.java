@@ -1,6 +1,6 @@
 package com.vini.services;
 
-import com.vini.dto.User;
+import com.vini.entities.User;
 
 public interface IUserService {
 	

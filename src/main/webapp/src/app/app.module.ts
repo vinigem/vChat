@@ -32,10 +32,12 @@ import { OverlayComponent } from './overlay/overlay.component';
 
 import { InfoComponent } from './info/info.component';
 
+import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
+
 @NgModule({
     declarations: [
         AppComponent, SecureLayoutComponent, PublicLayoutComponent, NavBarComponent, FooterBarComponent, AlertComponent,
-        HomeComponent, SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent
+        HomeComponent, SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule

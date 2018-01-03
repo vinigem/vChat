@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: './info.component.html'
 })
 export class InfoComponent implements OnInit {
-        
+
     msgType: number;
 
     constructor(private route: ActivatedRoute) { }
@@ -15,5 +15,5 @@ export class InfoComponent implements OnInit {
             this.msgType = params['type'];
         });
     }
-    
+
 }

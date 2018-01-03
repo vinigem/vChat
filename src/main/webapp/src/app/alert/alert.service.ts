@@ -18,7 +18,7 @@ export class AlertService {
         if (message && message.length > 0) {
             this.alertQueue.push({ 'message': message, 'type': alertType, 'time': time });
         }
-        if (this.alertQueue.length == 1) {
+        if (this.alertQueue.length === 1) {
             this.pushAlert();
         }
     }
