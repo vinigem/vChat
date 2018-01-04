@@ -24,6 +24,10 @@
     font-weight: bold;	
 }
 
+.game-info {
+	font-size: xx-large;
+}
+
 .btn[disabled] {
     filter: alpha(opacity=100) !important;
     opacity: 1 !important;

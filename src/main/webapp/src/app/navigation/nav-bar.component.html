@@ -21,7 +21,7 @@
 	                <a href="#" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-expanded="false">{{ selectedLanguage }} <span class="caret"></span></a>
 	                <ul class="dropdown-menu" role="menu">
 	                    <li *ngFor="let language of languages">
-	                    	<a href="#" (click)="selectLanguage(language)">{{ language.value }}</a>
+	                    	<a href="javascript:void(0)" (click)="selectLanguage(language)">{{ language.value }}</a>
 	                    </li>
 	                </ul>
 	            </li>
