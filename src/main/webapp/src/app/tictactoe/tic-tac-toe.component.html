@@ -5,45 +5,45 @@
 
 <div class="game-board">
 	<div class="game-board-row">
-		<button type="button" class="btn game-board-cell" (click)="playMove(0, 0)" [disabled]="!isValidMove(0, 0)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(0, 0)" [disabled]="!isValidMove(board, 0, 0)">
 			<i *ngIf="board[0][0] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[0][0] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(0, 1)" [disabled]="!isValidMove(0, 1)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(0, 1)" [disabled]="!isValidMove(board, 0, 1)">
 			<i *ngIf="board[0][1] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[0][1] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(0, 2)" [disabled]="!isValidMove(0, 2)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(0, 2)" [disabled]="!isValidMove(board, 0, 2)">
 			<i *ngIf="board[0][2] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[0][2] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
 	</div>
 	
 	<div class="game-board-row">
-		<button type="button" class="btn game-board-cell" (click)="playMove(1, 0)" [disabled]="!isValidMove(1, 0)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(1, 0)" [disabled]="!isValidMove(board, 1, 0)">
 			<i *ngIf="board[1][0] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[1][0] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(1, 1)" [disabled]="!isValidMove(1, 1)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(1, 1)" [disabled]="!isValidMove(board, 1, 1)">
 			<i *ngIf="board[1][1] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[1][1] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(1, 2)" [disabled]="!isValidMove(1, 2)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(1, 2)" [disabled]="!isValidMove(board, 1, 2)">
 			<i *ngIf="board[1][2] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[1][2] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
 	</div>
 	
 	<div class="game-board-row">
-		<button type="button" class="btn game-board-cell" (click)="playMove(2, 0)" [disabled]="!isValidMove(2, 0)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(2, 0)" [disabled]="!isValidMove(board, 2, 0)">
 			<i *ngIf="board[2][0] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[2][0] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(2, 1)" [disabled]="!isValidMove(2, 1)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(2, 1)" [disabled]="!isValidMove(board, 2, 1)">
 			<i *ngIf="board[2][1] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[2][1] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
-		<button type="button" class="btn game-board-cell" (click)="playMove(2, 2)" [disabled]="!isValidMove(2, 2)">
+		<button type="button" class="btn game-board-cell" (click)="playUserMove(2, 2)" [disabled]="!isValidMove(board, 2, 2)">
 			<i *ngIf="board[2][2] === 'P'" class="fa fa-times text-info"></i>
 			<i *ngIf="board[2][2] === 'C'" class="fa fa-circle-o text-danger"></i>
 		</button>
