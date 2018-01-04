@@ -45,7 +45,7 @@ export class TicTacToeComponent implements OnInit {
     findBestMove(): any {
         const bestMove = { row: -1, col: -1 };
         const board = this.board;
-        let bestScore = -1000;
+        let bestScore = Number.NEGATIVE_INFINITY;
 
         for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
             for (let colIndex = 0; colIndex < board.length; colIndex++) {
@@ -76,10 +76,10 @@ export class TicTacToeComponent implements OnInit {
      * simulate game
      */
     simulateGame(board: any, depth: number, isCpu: boolean): number {
-        const score = this.isGameWon(board, cpuSymbol) ? 10 : this.isGameWon(board, playerSymbol) ? -10 : 0;
+        const score = this.isGameWon(board, cpuSymbol) ? 1 : this.isGameWon(board, playerSymbol) ? -1 : 0;
 
         // If game is over, return score
-        if (score === 10 || score === -10) {
+        if (score !== 0) {
             return score;
         }
 
@@ -90,7 +90,7 @@ export class TicTacToeComponent implements OnInit {
 
         // If this is CPU's move
         if (isCpu) {
-            let bestScore = -1000;
+            let bestScore = Number.NEGATIVE_INFINITY;
 
             for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
                 for (let colIndex = 0; colIndex < board.length; colIndex++) {
@@ -111,7 +111,7 @@ export class TicTacToeComponent implements OnInit {
 
         // If this is Player's move
         } else {
-            let bestScore = 1000;
+            let bestScore = Number.POSITIVE_INFINITY;
 
             for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
                 for (let colIndex = 0; colIndex < board.length; colIndex++) {
