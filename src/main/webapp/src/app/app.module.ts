@@ -22,8 +22,6 @@ import { SignUpComponent } from './signup/sign-up.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './alert/alert.service';
 
-import { ChatService } from './chat/chat.service';
-
 import { TranslateService } from './translation/translate.service';
 import { TranslatePipe } from './translation/translate.pipe';
 
@@ -45,7 +43,7 @@ import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
-        AlertService, ChatService, TranslateService, OverlayService
+        AlertService, TranslateService, OverlayService
     ],
     bootstrap: [AppComponent]
 })

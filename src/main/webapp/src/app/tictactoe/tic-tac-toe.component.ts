@@ -158,11 +158,11 @@ export class TicTacToeComponent implements OnInit {
      */
     isMovesLeft(board: any): boolean {
         let moveLeft = false;
-        for (let row of board) {
+        for (const row of board) {
             if (row.length < board.length && !moveLeft) {
                 moveLeft = true;
             } else if (!moveLeft) {
-                for (let cell of row) {
+                for (const cell of row) {
                     if (!moveLeft) {
                         moveLeft = (cell == null);
                     }
