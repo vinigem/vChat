@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-	background: #fff url(/resources/images/bg.jpg) repeat top left;
+	background: #fff url(/resources/images/bg2.jpg) repeat top left;
 	color: #fff;
 }
 
@@ -25,7 +25,7 @@ body {
 .form-container {
 	background: #1d2731;
 	max-width: 500px;
-	margin: 0 auto;
+	margin: 10px auto;
 	border: 1px solid rgba(147, 184, 189, 0.8);
 	border-radius: 5px;
 	padding: 5px 15px;
