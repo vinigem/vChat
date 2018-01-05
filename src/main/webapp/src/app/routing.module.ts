@@ -24,8 +24,7 @@ const routes: Routes = [
         path: '', component: SecureLayoutComponent, canActivate: [AuthGuard],
         children: [
             { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'tictactoe', component: TicTacToeComponent }
+            { path: 'home', component: HomeComponent }
         ]
     },
     {
@@ -33,7 +32,8 @@ const routes: Routes = [
         children: [
             { path: 'signin', component: SignInComponent },
             { path: 'signup', component: SignUpComponent },
-            { path: 'info/:type', component: InfoComponent }
+            { path: 'info/:type', component: InfoComponent },
+            { path: 'tictactoe', component: TicTacToeComponent }
         ]
     },
     { path: '**', redirectTo: '' }

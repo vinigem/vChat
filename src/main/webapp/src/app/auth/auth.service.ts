@@ -22,7 +22,7 @@ export class AuthService {
      * set auth token
      */
     setToken(token: string) {
-        localStorage.setItem('token', token);
+        sessionStorage.setItem('token', token);
         this.setLoggedIn(true);
     }
 
@@ -30,14 +30,14 @@ export class AuthService {
      * get auth token
      */
     getToken() {
-        return localStorage.getItem('token');
+        return sessionStorage.getItem('token');
     }
 
     /**
      * remove token and disable logged in flag and redirect to route
      */
     logout() {
-        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         this.setLoggedIn(false);
         this.router.navigate(['info', '1']);
     }

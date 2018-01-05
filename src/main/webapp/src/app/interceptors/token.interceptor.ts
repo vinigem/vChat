@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
             // Add auth token
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Basic ${localStorage.getItem('token')}`
+                    Authorization: `Basic ${sessionStorage.getItem('token')}`
                 }
             });
         }

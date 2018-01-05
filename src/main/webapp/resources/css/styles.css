@@ -6,13 +6,14 @@ html, body {
 
 body {
 	background: #fff url(/resources/images/bg.jpg) repeat top left;
+	color: #fff;
 }
 
 .bottom-footer {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background-color: #000;
+	background-color: #1d2731;
 	min-height: 30px;
 	width: 100%;
 	color: #fff;
@@ -21,17 +22,18 @@ body {
 	z-index: 5;
 }
 
-.navbar {
-	border-radius: 0px !important;
-}
-
-.form-conatainer {
-	background: #f7f7f7;
+.form-container {
+	background: #1d2731;
 	max-width: 500px;
 	margin: 0 auto;
 	border: 1px solid rgba(147, 184, 189, 0.8);
 	border-radius: 5px;
 	padding: 5px 15px;
+}
+
+.form-icon {
+	background-color: #1d2731;
+	color: #fff;
 }
 
 /** Start:- screen overlay */
@@ -48,13 +50,7 @@ body {
 	cursor: pointer;
 	color: #6495ed;
 	display: flex;
-  	align-items: center;
-  	justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 /** End:- screen overlay */
-
-/* Start:- override bootstrap css */
-.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text, .navbar-inverse .navbar-brand {
-    color: #fff !important;
-}
-/* End:- override bootstrap css */

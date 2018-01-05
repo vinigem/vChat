@@ -150,7 +150,7 @@ export class TicTacToeComponent implements OnInit {
      * check if the current move is valid
      */
     isValidMove(board: any, rowIndex: number, colIndex: number): boolean {
-        return this.isMovesLeft(board) && board[rowIndex][colIndex] == null;
+        return !this.gameOver && this.isMovesLeft(board) && board[rowIndex][colIndex] == null;
     }
 
     /**
