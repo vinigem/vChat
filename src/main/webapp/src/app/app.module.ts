@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing.module';
 
@@ -32,13 +32,14 @@ import { InfoComponent } from './info/info.component';
 
 import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
 
+
 @NgModule({
     declarations: [
         AppComponent, SecureLayoutComponent, PublicLayoutComponent, NavBarComponent, FooterBarComponent, AlertComponent,
         HomeComponent, SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent
     ],
     imports: [
-        BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule
+        BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

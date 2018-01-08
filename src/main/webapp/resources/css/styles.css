@@ -54,3 +54,7 @@ body {
 	justify-content: center;
 }
 /** End:- screen overlay */
+
+.margin-top {
+	margin-top: 15px;
+}
