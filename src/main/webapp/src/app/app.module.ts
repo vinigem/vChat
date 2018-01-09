@@ -9,10 +9,8 @@ import { RoutingModule } from './routing.module';
 import { CommonInterceptor } from './interceptors/common.interceptor';
 
 import { AppComponent } from './app.component';
-import { SecureLayoutComponent } from './layout/secure-layout.component';
-import { PublicLayoutComponent } from './layout/public-layout.component';
-import { NavBarComponent } from './navigation/nav-bar.component';
-import { FooterBarComponent } from './footer/footer-bar.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 import { HomeComponent } from './home/home.component';
 
@@ -35,8 +33,8 @@ import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
 
 @NgModule({
     declarations: [
-        AppComponent, SecureLayoutComponent, PublicLayoutComponent, NavBarComponent, FooterBarComponent, AlertComponent,
-        HomeComponent, SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent
+        AppComponent, HeaderComponent, FooterComponent, AlertComponent, HomeComponent,
+        SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule

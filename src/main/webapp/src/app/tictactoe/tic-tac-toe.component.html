@@ -6,16 +6,19 @@
 	
 	<div class="ttt-board">
 		<div class="ttt-board-row" *ngFor="let row of board; let i = index;">
-			<button type="button" class="btn ttt-board-cell" *ngFor="let cell of row; let j = index;" (click)="playUserMove(i, j)" [disabled]="!isValidMove(board, i, j)">
-				<i *ngIf="board[i][j] === 'P'" class="fa fa-times fa-fw fa-5x ttt-color-1"></i>
-				<i *ngIf="board[i][j] === 'C'" class="fa fa-circle-o fa-fw fa-5x ttt-color-2"></i>
-			</button>
+			<div *ngFor="let cell of row; let j = index;">
+				<button type="button" class="btn ttt-board-cell" (click)="playUserMove(i, j)"
+					[disabled]="!isValidMove(board, i, j)">
+					<i *ngIf="board[i][j] === 'P'" class="fa fa-times fa-fw fa-5x ttt-color-1"></i>
+					<i *ngIf="board[i][j] === 'C'" class="fa fa-circle-o fa-fw fa-5x ttt-color-2"></i>
+				</button>
+			</div>
 		</div>
 	</div>
 	
 	<br/>
 	
 	<div class="btn-group margin-top" *ngIf="gameOver">
-		<button type="button" class="btn btn-success btn-lg" (click)="resetBoard()">Start Again</button>
+		<button type="button" class="btn btn-success btn-lg ripple" (click)="resetBoard()">Start Again</button>
 	</div>
 </div>

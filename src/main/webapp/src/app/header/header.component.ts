@@ -4,10 +4,10 @@ import { AuthService } from '../auth/auth.service';
 import { TranslateService } from '../translation/translate.service';
 
 @Component({
-    selector: 'nav-bar',
-    templateUrl: './nav-bar.component.html'
+    selector: 'cHeader',
+    templateUrl: './header.component.html'
 })
-export class NavBarComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
 
     isLoggedIn: boolean;
     selectedLanguage: string;

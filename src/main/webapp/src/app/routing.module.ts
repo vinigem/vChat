@@ -4,9 +4,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
-import { SecureLayoutComponent } from './layout/secure-layout.component';
-import { PublicLayoutComponent } from './layout/public-layout.component';
-
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 
@@ -21,21 +18,16 @@ import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
 
 const routes: Routes = [
     {
-        path: '', component: SecureLayoutComponent, canActivate: [AuthGuard],
+        path: '', canActivate: [AuthGuard],
         children: [
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'home', component: HomeComponent }
         ]
     },
-    {
-        path: '', component: PublicLayoutComponent,
-        children: [
-            { path: 'signin', component: SignInComponent },
-            { path: 'signup', component: SignUpComponent },
-            { path: 'info/:type', component: InfoComponent },
-            { path: 'tictactoe', component: TicTacToeComponent }
-        ]
-    },
+    { path: 'signin', component: SignInComponent },
+    { path: 'signup', component: SignUpComponent },
+    { path: 'info/:type', component: InfoComponent },
+    { path: 'tictactoe', component: TicTacToeComponent },
     { path: '**', redirectTo: '' }
 ];
 
