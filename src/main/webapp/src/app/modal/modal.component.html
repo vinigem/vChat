@@ -1,0 +1,28 @@
+<div class="backdrop" *ngIf="show"></div>
+
+<div class="dialog-box" *ngIf="show">
+	<div class="dialog-content">
+		
+		<div class="dialog-header">
+			<button type="button" class="close-icon" (click)="handleCancel()">
+				<i class="fa fa-times"></i>
+			</button>
+			<h4 class="dialog-title" *ngIf="title">{{ title | translate }}</h4>
+		</div>
+
+		<div class="dialog-body">
+			<p>{{ message | translate }}</p>
+		</div>
+
+		<div class="dialog-footer text-right">
+			<div class="btn-group" *ngIf="confirmationDialog">
+				<button type="button" class="btn btn-primary" (click)="handleOK()">{{ 'yes' | translate }}</button>
+				<button type="button" class="btn btn-default" (click)="handleCancel()">{{ 'no' | translate }}</button>
+			</div>
+			<div class="btn-group" *ngIf="!confirmationDialog">
+				<button type="button" class="btn btn-primary" (click)="handleCancel()">{{ 'ok' | translate }}</button>
+			</div>
+		</div>
+		
+	</div>
+</div>

@@ -30,11 +30,14 @@ import { InfoComponent } from './info/info.component';
 
 import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
 
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal/modal.service';
+
 
 @NgModule({
     declarations: [
         AppComponent, HeaderComponent, FooterComponent, AlertComponent, HomeComponent,
-        SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent
+        SignInComponent, SignUpComponent, TranslatePipe, OverlayComponent, InfoComponent, TicTacToeComponent, ModalComponent
     ],
     imports: [
         BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule
@@ -42,7 +45,7 @@ import { TicTacToeComponent } from './tictactoe/tic-tac-toe.component';
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
-        AlertService, TranslateService, OverlayService
+        AlertService, TranslateService, OverlayService, ModalService
     ],
     bootstrap: [AppComponent]
 })
