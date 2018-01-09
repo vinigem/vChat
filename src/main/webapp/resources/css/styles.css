@@ -42,6 +42,7 @@ body {
 .form-icon {
 	background-color: #1d2731;
 	color: #fff;
+	border-radius: 5px;
 }
 
 /** Start:- screen overlay */
